@@ -1,0 +1,13 @@
+appName: tomcat-pier-test
+appPort: 8080
+appPortName: http
+replicaCount: 2
+configmapName: "cm-test"
+containerName: tomcat-container
+image: "tomcat:latest"
+imagePullPolicy: Always
+requestsCpu: 100m
+requestsMemory: 128Mi
+limitsCpu: 200m
+limitsMemory: 256Mi
+type: LoadBalancer

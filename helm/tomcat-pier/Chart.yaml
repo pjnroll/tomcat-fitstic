@@ -1,0 +1,4 @@
+apiVersion: v2
+name: tomcat-pier
+description: Custom Tomcat version
+version: 1.0

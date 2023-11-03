@@ -1,0 +1,13 @@
+appName: tomcat-pier
+appPort: 8080
+appPortName: http
+replicaCount: 2
+configmapName: "cm-prod"
+containerName: tomcat
+image: "tomcat:latest"
+imagePullPolicy: IfNotPresent
+requestsCpu: 100m
+requestsMemory: 256Mi
+limitsCpu: 200m
+limitsMemory: 512Mi
+type: LoadBalancer

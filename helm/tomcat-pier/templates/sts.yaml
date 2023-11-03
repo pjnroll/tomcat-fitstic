@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sts-{{ .Values.appName }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appName }}
+    spec:
+      containers:
+      - name: {{ .Values.appName }}
+        env:
+        - name: MY_VAR
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.configmapName }}
+              key: MY_VAR
+        image: {{ .Values.image }}
+        ports:
+        - containerPort: {{ .Values.appPort }}
+          name: {{ .Values.appPortName }}
+        resources:
+          requests:
+            cpu: {{ .Values.requestsCpu }}
+            memory: {{ .Values.requestsMemory }}
+          limits:
+            cpu: {{ .Values.limitsCpu }}
+            memory: {{ .Values.limitsMemory }}

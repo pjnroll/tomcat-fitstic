@@ -1,0 +1,13 @@
+appName: tomcat-pier
+appPort: 8080
+appPortName: http
+replicaCount: 1
+configmapName: "cm-env"
+containerName: tomcat
+image: "tomcat:latest"
+imagePullPolicy: Always
+requestsCpu: 100m
+requestsMemory: 128Mi
+limitsCpu: 500m
+limitsMemory: 256Mi
+type: ClusterIP
